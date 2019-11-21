@@ -139,13 +139,11 @@
       </div>
     </div>
       <div class="content">
-
           <div class="right">
               <div class="right-0">
               <div class="right-1">
                  <div class="border-1"> <h2>EXPERIENCE</h2></div></div>
                  <div class="right-2">
-
                   <?php
                     foreach ( $experience as $key => $value ){
                     ?>
@@ -273,11 +271,10 @@
             </div>
             <div class="footer-2">
               <div class="footer-21">            
-                  <div class="border-1"> <h2>REFERENCES</h2></div></div>
-              
+                  <div class="border-1"> <h2>REFERENCES</h2></div></div>              
                 <div class="footer-22">  
                 <?php foreach ( $references as $key => $value ){
-                ?>
+                 ?>
                       <div class="word-1"><h4>
                         <?php
                         echo ''.$value['name'];
@@ -297,14 +294,13 @@
                     <div class="footer-23">                                    
                 <?php  } ?>                  
               </div>             
-            </div>
-          
+            </div>        
             <div class="footer-3">
-                  <div class="footer-31">
-                      <div class="border-2"> <h2>INTEREST </h2></div>
-                  </div>
-                <div class="footer-32">
-                <img src="5.jpg"  class="rounded-circle" alt="Cinque Terre" width="150" height="150">  
+                    <div class="footer-31">
+                        <div class="border-2"> <h2>INTEREST </h2></div>
+                    </div>
+                    <div class="footer-32">
+                  <img src="5.jpg"  class="rounded-circle" alt="Cinque Terre" width="150" height="150">  
                 </div>
           </div>  
         </div>
