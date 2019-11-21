@@ -1,0 +1,271 @@
+body {
+    background: white;
+    font-family: Varta;
+    font-style: normal;
+}
+.q-100 {
+    width: 100%;
+}
+.header {   
+    width: 100%;
+    height: 200px;
+    float: left;
+   
+}
+.content {   
+    width: 100%;
+    height: 1500px;
+    float: left;
+    padding: 10px;
+    
+}
+.right {   
+    width: 60%;
+    height: 1500px;
+    float: left;
+    padding: 10px;
+}
+.right-0 {  
+    width: 100%;
+    height: 700px;
+    float: left;
+}
+.right-1 {  
+    width: 100%;
+    height: 50px;
+    float: left;
+}
+.right-2 {  
+    width: 100%;
+    height: 200px;
+    float: left;
+}
+.right-22 {  
+    width: 30%;
+    height: 200px;
+    float: left;
+}
+.right-222 {   
+    width: 70%;
+    height: 200px;
+    float: left;
+}
+.right-3 {  
+    width: 100%;
+    height: 200px;
+    float: left;
+}
+.right-33 {
+    width: 30%;
+    height: 200px;
+    float: left;   
+}
+.right-333 {
+    width: 70%;
+    height: 200px;
+    float: left;   
+}
+.right-4 {   
+    width: 100%;
+    height: 200px;
+    float: left;
+}
+.right-44 {
+    width: 30%;
+    height: 200px;
+    float: left; 
+}
+.right-444 {
+    width: 70%;
+    height: 200px;
+    float: left; 
+}
+.right-00 { 
+    width: 100%;
+    height: 800px;
+    float: left;
+}
+.right-5 {
+    width: 100%;
+    height: 50px;
+    float: left;  
+}
+.right-6 {
+    width: 100%;
+    height: 250px;
+    float: left; 
+}
+.right-66 {
+    width: 30%;
+    height: 250px;
+    float: left;  
+}
+.right-666 {
+    width: 70%;
+    height: 250px;
+    float: left;  
+}
+.right-7 {
+    width: 100%;
+    height: 250px;
+    float: left;  
+}
+.right-77 {
+    width: 30%;
+    height: 250px;
+    float: left; 
+}
+.right-777 {
+    width: 70%;
+    height: 250px;
+    float: left;   
+}
+.right-8 {
+    width: 100%;
+    height: 250px;
+    float: left;  
+}
+.right-88 {
+    width: 30%;
+    height: 250px;
+    float: left;   
+}
+.right-888 {
+    width: 70%;
+    height: 250px;
+    float: left;  
+}
+.left {   
+    width: 40%;
+    height: 1500px;
+    float: left;
+}
+.left-1 { 
+    width: 100%;
+    height: 250px;
+    float: left;
+}
+.left-2 {   
+    width: 100%;
+    height: 550px;
+    float: left;
+}
+.footer {   
+    width: 100%;
+    height: 300px;
+    float: left;
+   padding: 10px;
+}
+.footer-1 { 
+    width: 30%;
+    height: 300px;
+    float: left;
+}
+.footer-11{   
+    width: 100%;
+    height:50px;
+    float: left;
+}
+.footer-12 {   
+    width: 100%;
+    height:120px;
+    float: left;
+}
+.footer-13 {  
+    width: 100%;
+    height:120px;
+    float: left;
+}
+
+.footer-2 {   
+    width: 30%;
+    height: 300px;
+    float: left;
+}
+.footer-21 { 
+    width: 120%;
+    height: 50px;
+    float: left;
+}
+.footer-22 { 
+    width: 100%;
+    height:120px;
+    float: left;
+}
+.footer-23 {
+    width: 100%;
+    height:120px;
+    float: left;
+}
+.footer-3 {   
+    width: 40%;
+    height: 300px;
+    float: left;
+}
+.footer-31 {  
+    width: 100%;
+    height: 50px;
+}
+.footer-32 {  
+    width: 100%;
+    height: 250px;
+}
+.framer-1 {  
+    height: 200px;
+    width: 60%;
+    float: left;
+  
+}
+.framer-2 {  
+    height: 200px;
+    width: 40%;
+    float: left;
+}
+
+.rounded-circle {
+    float: left;
+    margin: 20px; 
+}
+.word {
+    padding: 30px; 
+}
+
+.word-1 {
+    padding: 10px;
+    margin-left:95px; 
+}
+.word-2 {
+    padding: 20px;
+}
+.icon-bar {
+    width: 20px;
+    height: 24px;
+    left: 1175px;
+    top: 114px;
+    color: #FFCC00;
+    float: left;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+.border-img {
+    border: 6px solid #FFCC00;
+}
+.border-1 {
+    border-left: 5px solid #FFCC00;
+    margin-left: 95px;
+    height: 35px;
+}
+.border-2 {
+    border-left: 5px solid #FFCC00;
+    margin-left: 15px;
+    height: 40px;
+}
+.border-3 {
+    border-left: 5px solid #FFCC00;
+    margin-left: 5px;
+}
+.container {
+    margin: 2px;
+}
+
+
