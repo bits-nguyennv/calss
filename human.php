@@ -9,9 +9,7 @@
         public $awards; 
         public $references;
         public $profile;
-        public $contace;
-        
-
+        public $contace;       
         function set_name($name){
         $this->name = $name;
         }
