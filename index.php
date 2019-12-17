@@ -1,44 +1,27 @@
 <?php
+session_start();
   include "human.php";
+  include "9.php";
+
   $nguyen = new human();
+  $db2 = new dbconnect();
+  $db2->connect();
+  $table1 = 'experience';
+  $where1 = "user_id = ". $_SESSION['id'];
+  $experience = $db2->select1($table1,$where1);
   $nguyen->set_name('Nguyễn Văn Nguyên');
   $nguyen->set_address('tòa nhà detech số 107 nguyễn phong sắc');
-  $experience = [
-	  [
-		"time"=>"2016-2019",
-		"name"=>"CÔNG TY TOYODENSO",
-		"conten"=>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, It is a long established fact that a reader will be distracted by the readable content of a page"
-	  ],
-	  [
-		"time"=>"2016-2019",
-		"name"=>"CÔNG TY TOYODENSO",
-		"conten"=>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, It is a long established fact that a reader will be distracted by the readable content of a page"
-	  ],
-	  [
-		"time"=>"2016-2019",
-		"name"=>"CÔNG TY TOYODENSO",
-		"conten"=>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, It is a long established fact that a reader will be distracted by the readable content of a page"
-	  ]
-	];
   $nguyen->set_experience($experience);
-  $education = [
-	[
-	  "time" => "2014-2018",
-	  "school" => "CĐ xây dựng công trình đô thị",
-	  "conten" => "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of lettersabc It is a long established fact that a reader will be distracted by the readable content of a page It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that"
-	],
-	[
-	  "time" => "2014-2018",
-	  "school" => "CĐ xây dựng công trình đô thị",
-	  "conten" => "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of lettersabc It is a long established fact that a reader will be distracted by the readable content of a page It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that"
-	],
-	[
-	  "time"=>"2014-2018",
-	  "school"=>"CĐ xây dựng công trình đô thị",
-	  "conten"=>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of lettersabc It is a long established fact that a reader will be distracted by the readable content of a page It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that"
-	]
-  ];
+  $table1 = 'education';
+  $where1 = "user_id = ". $_SESSION['id'];
+  $education = $db2->select1($table1,$where1);
   $nguyen->set_education($education);
+
+  $table1 = 'skills';
+  $where1 = "user_id = ". $_SESSION['id'];
+  $skill = $db2->select1($table1,$where1);
+  $nguyen->set_skill($skill);
+
   $contace_nguyen = array(
 	'phone1'=>'0388743862',
 	'phone2'=>'0388743862',
@@ -53,55 +36,13 @@
 	'coder' => 'Best Coder'
   );
   $nguyen->set_awards($awards);
-  $references = [
-   [
-	 'name' => 'Name of Refrance',
-	 'phone' => 'Phone: +123456789',
-	 'email' => 'Email: ref@mail.com'
-   ],
-   [
-	 'name' => 'Name of Refrance',
-	 'phone' => 'Phone: +123456789',
-	 'email' => 'Email: ref@mail.com'
-	]
-  ];
+
+  $table1 = 'referen';
+  $where1 = "user_id = ". $_SESSION['id'];
+  $references = $db2->select1($table1,$where1);
   $nguyen->set_references($references);
   $nguyen->set_profile('It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, It is a long established fact that a reader will be distracted by the readable content of a page');
-  $skill = [
-	[
-	  "title" => "PHP",
-	  "width" => "50%"
-	],
-	[
-	  "title" => "HTML/CSS",
-	  "width" => "40%"
-	],
-	[
-	  "title" => ".NET",
-	  "width" => "30%"
-	],
-	[
-	  "title" => "MYSQL",
-	  "width" => "25%"
-	],
-	[
-	  "title" => "PHP",
-	  "width" => "50%"
-	],
-	[
-	  "title" => "HTML/CSS",
-	  "width" => "40%"
-	],
-	[
-	  "title" => ".NET",
-	  "width" => "30%"
-	],
-	[
-	  "title" => "MYSQL",
-	  "width" => "25%"
-	]
-  ];
-  $nguyen->set_skill($skill);
+
 ?>
 <html>
   <head>
@@ -146,7 +87,8 @@
 				 <div class="right-2">
 
 				  <?php
-					foreach ( $experience as $key => $value ){
+					// foreach ( $experience as $value ){
+						while($value = mysqli_fetch_assoc($experience)){
 					?>
 					  <div class="right-22">
 						  <div class="word-1"> <P>
@@ -175,7 +117,7 @@
 				<div class="border-1"><h2>EDUCATION</h2></div></div>
 				 <div class="right-6">
 				   <?php
-					foreach ( $education as $key => $value ){
+					while($value = mysqli_fetch_assoc($education)){
 					   ?>
 					 <div class="right-66">
 						<div class="word-1"> <P>
@@ -215,7 +157,8 @@
 				 <div class="border-2"><h2>SKILLS</h2></div>
 					<div class="container">
 					  <?php
-					  foreach ( $skill as $key => $value ) {
+					//   foreach ( $skill as $key => $value )
+					  while($value = mysqli_fetch_assoc($skill)) {
 					  ?>
 						 <P>
 						  <?php
@@ -230,9 +173,7 @@
 						   </div><br>
 						<?php } ?>
 					</div>
-
 			 </div>
-
 				</div>
 			  </div>
 			  </div>
@@ -242,7 +183,6 @@
 				<div class="border-1"> <h2>AWARDS </h2></div>
 			  </div>
 			  <div class="footer-12">
-
 				  <div class="word-1"><h4>
 					<?php
 					  echo $nguyen->get_awards()['employee'];
@@ -278,9 +218,8 @@
 			<div class="footer-2">
 			  <div class="footer-21">
 				  <div class="border-1"> <h2>REFERENCES</h2></div></div>
-
 				<div class="footer-22">
-				<?php foreach ( $references as $key => $value ){
+				<?php while($value = mysqli_fetch_assoc($references)){
 				?>
 					  <div class="word-1"><h4>
 						<?php
@@ -302,7 +241,6 @@
 				<?php  } ?>
 			  </div>
 			</div>
-
 			<div class="footer-3">
 				  <div class="footer-31">
 					  <div class="border-2"> <h2>INTEREST </h2></div>

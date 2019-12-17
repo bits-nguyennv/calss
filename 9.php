@@ -17,7 +17,7 @@ class dbconnect {
         if (!$this->conn){
             die("Connection failed: ".$this->conn);
         }else{
-            echo "kết nối thành công";   
+            echo "";   
         } 
 
     }       
@@ -30,38 +30,43 @@ class dbconnect {
             echo " k thành công".$this->conn->error;
         }   
     }
-    // function select($table){
-    //     $sql = "SELECT * FROM $table";
-    //     $select = $this->conn->query($sql);
-    //    $rows =  mysqli_fetch_all($select);
-    //     if ($select == true){
-    //             echo " thành công";
-    //         } else {
-    //             echo " k thành công".$this->conn->error;
-    //         } 
-    //         return $rows;  
-    // }
-
-    function insert1($table1,$colum1,$values1){
-        $sql = "INSERT INTO $table1 ($colum1) VALUES ($values1);";
-        $insert1 = $this->conn->query($sql);
-        if ($insert1 == true){
-            echo " thành công";
-        } else {
-            echo " k thành công".$this->conn->error;
-        }   
-    }
-    function select1($table1){
-        $sql = "SELECT * FROM $table1";
-        $select1 = $this->conn->query($sql);
-       $rows =  mysqli_fetch_all($select1);
-        if ($select1 == true){
+    function select($table,$where){
+        $sql = "SELECT * FROM $table WHERE $where;";
+        $select = $this->conn->query($sql);
+       $rows =  mysqli_fetch_assoc($select);
+        if ($select == true){
                 echo " thành công";
             } else {
                 echo " k thành công".$this->conn->error;
             } 
             return $rows;  
     }
+
+    function select1($table1,$where1){
+        $sql = "SELECT * FROM $table1 WHERE $where1;";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;  
+    }
+    // function insert1($table1,$colum1,$values1){
+    //     $sql = "INSERT INTO $table1 ($colum1) VALUES ($values1);";
+    //     $insert1 = $this->conn->query($sql);
+    //     if ($insert1 == true){
+    //         echo " thành công";
+    //     } else {
+    //         echo " k thành công".$this->conn->error;
+    //     }   
+    // }
+    // function select1($table1){
+    //     $sql = "SELECT * FROM $table1";
+    //     $select1 = $this->conn->query($sql);
+    //    $rows =  mysqli_fetch_all($select1);
+    //     if ($select1 == true){
+    //             echo " thành công";
+    //         } else {
+    //             echo " k thành công".$this->conn->error;
+    //         } 
+    //         return $rows;  
+    // }
     
     // function update($table,$colum1,$values1){
     //     $sql = "UPDATE $table SET $colum1 = $values1;";
@@ -82,25 +87,29 @@ class dbconnect {
     //     }   
     // }
 }      
-    $db = new dbconnect();
-    $db->connect();
-    $table = 'education';
-    $colum = "time,school,conten";
-    $values = "'2014-2108','cdxdctdt','nd'";
-    $db->insert($table,$colum,$values);
+    // $db = new dbconnect();
+    // $db->connect();
+    // $table = 'referen';
+    // $colum = "name,phone,email";
+    // $values = "'Name of Refrance','Phone:+123456789','Email: ref@mail.com'";
+    //  $db->insert($table,$colum,$values);
+    // $table = 'user';
+    // $colum = "name,password";
+    // $values = "'anhnguyen','123456'";
+    // $db->insert($table,$colum,$values);
 
-    $table1 = 'skills';
-    $colum1 = "title,width";
-    $values1 = "'PHP','80%'";
-    $db->insert1($table1,$colum1,$values1);
+    // $table1 = 'experience';
+    // $colum1 = "time,name,conten";
+    // $values1 = "'2016-2019','CÔNG TY TOYODENSO','đã từng làm việc và có thêm kinh nghiêm về vận hành máy móc'";
+    // $db->insert1($table1,$colum1,$values1);
 
-    $rows = $db->select1($table1,$table1);
-    var_dump($rows);
+    // $rows = $db->select1($table1,$table1);
+    // var_dump($rows);
 
     // $table = 'education';
-    // $colum1 = "time";
-    // $values1 = "'2017'";
-    // $db->update($table,$colum1,$values1);
+    // $colum = "time,school,conten";
+    // $values = "'2014-2018','CĐ xây dựng công trình đô thị','Đã học 3 năm'";
+    // $db->insert($table,$colum,$values);
 
     // $table = 'education';
     // $where = 'id=1';
