@@ -1,48 +1,41 @@
 <?php
-session_start();
+	session_start();
+	if(!$_SESSION['id']){
+	header("location:from.php");
+	}
   include "human.php";
   include "9.php";
-
   $nguyen = new human();
   $db2 = new dbconnect();
   $db2->connect();
   $table1 = 'experience';
   $where1 = "user_id = ". $_SESSION['id'];
   $experience = $db2->select1($table1,$where1);
-  $nguyen->set_name('Nguyễn Văn Nguyên');
-  $nguyen->set_address('tòa nhà detech số 107 nguyễn phong sắc');
   $nguyen->set_experience($experience);
+  
   $table1 = 'education';
-  $where1 = "user_id = ". $_SESSION['id'];
   $education = $db2->select1($table1,$where1);
   $nguyen->set_education($education);
-
   $table1 = 'skills';
-  $where1 = "user_id = ". $_SESSION['id'];
   $skill = $db2->select1($table1,$where1);
   $nguyen->set_skill($skill);
 
-  $contace_nguyen = array(
-	'phone1'=>'0388743862',
-	'phone2'=>'0388743862',
-	'email1'=>'n.v.nguyen@wbs-v.biz',
-	'addess'=>'nguyễn phong sắc,tòa nhà detech'
-  );
-  $nguyen->set_contace($contace_nguyen);
-  $awards = array(
-	'employee' => 'Employee of The Month',
-	'award1' =>  'Some detail of Award and more',
-	'award2' =>  'Some detail of Award and more',
-	'coder' => 'Best Coder'
-  );
+  $table1 = 'awards1';
+  $contace = $db2->select1($table1,$where1);
+  $nguyen->set_contace($contace);
+
+  $table1 = 'awards';
+  $awards = $db2->select1($table1,$where1);
   $nguyen->set_awards($awards);
 
   $table1 = 'referen';
-  $where1 = "user_id = ". $_SESSION['id'];
   $references = $db2->select1($table1,$where1);
   $nguyen->set_references($references);
-  $nguyen->set_profile('It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, It is a long established fact that a reader will be distracted by the readable content of a page');
-
+  $table1 = 'user';
+  $where1 ="id = ".$_SESSION['id'];
+  $name = $db2->select1($table1,$where1);
+  $name =  mysqli_fetch_assoc($name);
+  $nguyen->set_name($name);
 ?>
 <html>
   <head>
@@ -55,62 +48,62 @@ session_start();
    <div class="q-100">
 	<div class="header">
 	  <div class="framer-1">
-		  <img src="anh.jpg" class="rounded-circle float-left border-img " alt="Cinque Terre" width="200" height="150" >
+		  <img src=<?php echo "".$nguyen->get_name()['img'] ?> class="rounded-circle float-left border-img " alt="Cinque Terre" width="200" height="180" >
 		  <div class="word">
-
 		   <h2>
 			  <?php
-			 echo "" . $nguyen->get_name();
+			 echo "" . $nguyen->get_name()['name1'];
 			 ?>
 		   </h2>
 
 			<div class="container">
-			<h4 class="font-weight-light">PHP & .NET DEVELOPER</h4>
+			<h3 class="font-weight-light"><?php echo "".$nguyen->get_name()['addess'] ?></h3>
 			</div>
 		  </div>
 	  </div>
 	   <div class="framer-2">
+	   <?php while($value = mysqli_fetch_assoc($contace)){
+	   ?>
 			<p><div class="icon-bar"><i class="fas fa-phone"></i></div>
-			  <?php echo $nguyen->get_contace()['phone1'];?></p>
-			  <?php echo $nguyen->get_contace()['phone2'];?>
+			  <?php echo $value ['phone'];?></p>
+			  <?php echo $value ['phone1'];?>
 			  <p><div class="icon-bar"><i class="far fa-envelope" ></i></div>
-			  <?php echo $nguyen->get_contace()['email1'];?></p>
+			  <?php echo $value ['email'];?></p>
 			  <p><div class="icon-bar"><i class="fas fa-map-marker-alt"></i></div>
-			  <?php echo $nguyen->get_contace()['addess'];?></p>
+			  <?php echo $value ['addess'];?></p>
+			  <?php  } ?>
 	 </div>
 	</div>
-	  <div class="content">
+	    <div class="content">
 		  <div class="right">
 			  <div class="right-0">
 			  <div class="right-1">
 				 <div class="border-1"> <h2>EXPERIENCE</h2></div></div>
 				 <div class="right-2">
-
-				  <?php
-					// foreach ( $experience as $value ){
+				    <?php
 						while($value = mysqli_fetch_assoc($experience)){
 					?>
-					  <div class="right-22">
+					    <div class="right-22">
 						  <div class="word-1"> <P>
 						  <?php
 						  echo '' . $value['time'];
 						  ?>
 						  </P>
 						  </div>
+					    </div>
+					    <div class="right-222">
+							<h4><?php
+							echo ''.$value['name'];
+							?>
+							</h4>
+							<h5>Developer</h5>
+							<p><?php
+							echo ''.$value['conten'];
+							?>
+							</p>
 					  </div>
-					  <div class="right-222">
-						  <h4><?php
-						  echo ''.$value['name'];
-						  ?>
-						  </h4>
-						<h5>Developer</h5>
-						<p><?php
-						echo ''.$value['conten'];
-						?>
-						</p>
-					  </div>
-				  <?php  } ?>
-			  </div>
+				    <?php  } ?>
+			    </div>
 			  <div class="right-3"> </div></div>
 		   <div class="right-00">
 			 <div class="right-5">
@@ -149,7 +142,7 @@ session_start();
 					<div class="border-3"> <h2>PROFILE</h2></div>
 					<p>
 					<?php
-					echo "" . $nguyen->get_profile();
+					echo "" . $nguyen->get_name()['profile'];
 					?>
 					</p></div>
 			  <div class="left-2">
@@ -179,41 +172,32 @@ session_start();
 			  </div>
 		  <div class="footer">
 			<div class="footer-1">
-			  <div class="footer-11">
-				<div class="border-1"> <h2>AWARDS </h2></div>
-			  </div>
-			  <div class="footer-12">
+				<div class="footer-11">
+					<div class="border-1"> <h2>AWARDS </h2></div>
+				</div>
+			    <div class="footer-12">
 				  <div class="word-1"><h4>
 					<?php
-					  echo $nguyen->get_awards()['employee'];
-					?>
-					  </h4>
+					 while($value = mysqli_fetch_assoc($awards)) {
+					  echo $value['employee'];
+					?> </h4>				
 						<p>
 						<?php
-						echo $nguyen->get_awards()['award1'];
+						echo $value['award'];
 						?>
 						</p>
 						<p>
 						<?php
-						echo $nguyen->get_awards()['award2'];
-						?>
+						echo $value ['award1'];
+						?>				
 				  </p></div>
-			  </div>
-			  <div class="footer-13">
-				  <div class="word-1"> <h4>
-					<?php
-					echo $nguyen->get_awards()['coder'];
-					?>
-					</h4>
-					  <p><?php
-					  echo $nguyen->get_awards()['award1'];
-					  ?></p>
-					  <p>
-					  <?php
-					  echo $nguyen->get_awards()['award1'];
-					  ?>
+			    </div>
+			    <div class="footer-13">
+				  <div class="word-1"> <h4>				
+                  <?php } ?>
+
 				  </p></div>
-			  </div>
+			    </div>
 			</div>
 			<div class="footer-2">
 			  <div class="footer-21">
@@ -251,5 +235,8 @@ session_start();
 		  </div>
 		</div>
 	</div>
+	<form action="logout.php" method="POST">
+	<input type="submit" value ="logout">
+	</from>
   </body>
 </html>

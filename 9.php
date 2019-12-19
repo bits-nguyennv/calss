@@ -19,29 +19,27 @@ class dbconnect {
         }else{
             echo "";   
         } 
-
     }       
-    function insert($table,$colum,$values){
-        $sql = "INSERT INTO $table ($colum) VALUES ($values);";
-        $insert = $this->conn->query($sql);
-        if ($insert == true){
-            echo " thành công";
-        } else {
-            echo " k thành công".$this->conn->error;
-        }   
-    }
+    // function insert($table,$colum,$values){
+    //     $sql = "INSERT INTO $table ($colum) VALUES ($values);";
+    //     $insert = $this->conn->query($sql);
+    //     if ($insert == true){
+    //         echo " thành công";
+    //     } else {
+    //         echo " k thành công".$this->conn->error;
+    //     }   
+    // }
     function select($table,$where){
         $sql = "SELECT * FROM $table WHERE $where;";
         $select = $this->conn->query($sql);
        $rows =  mysqli_fetch_assoc($select);
         if ($select == true){
-                echo " thành công";
+                echo "";
             } else {
                 echo " k thành công".$this->conn->error;
             } 
             return $rows;  
     }
-
     function select1($table1,$where1){
         $sql = "SELECT * FROM $table1 WHERE $where1;";
         $result = mysqli_query($this->conn, $sql);
@@ -89,10 +87,11 @@ class dbconnect {
 }      
     // $db = new dbconnect();
     // $db->connect();
-    // $table = 'referen';
-    // $colum = "name,phone,email";
-    // $values = "'Name of Refrance','Phone:+123456789','Email: ref@mail.com'";
-    //  $db->insert($table,$colum,$values);
+    // $table = 'awards';
+    // $colum = "employee,award,award1";
+    // $values = "'Employee of The Month','Some detail of Award and more','Some detail of Award and more'";
+    // $db->insert($table,$colum,$values);
+
     // $table = 'user';
     // $colum = "name,password";
     // $values = "'anhnguyen','123456'";
@@ -124,6 +123,7 @@ class dbconnect {
 
 
 ?>
+
 
 
 

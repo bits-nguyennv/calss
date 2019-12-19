@@ -1,26 +1,19 @@
 <?php
     class human {
         public $name;
-        public $address;
         public $experience;
         public $education;
         public $skill;
         public $interest;
         public $awards; 
         public $references;
-        public $profile;
-        public $contace;       
+        public $contace;   
+            
         function set_name($name){
         $this->name = $name;
         }
         function get_name(){
         return $this->name;
-        }
-        function set_address($address){
-        $this->address = $address;
-        }
-        function get_address(){
-        return $this->address;
         }
         function set_experience($experience){
         $this->experience = $experience;
@@ -57,12 +50,6 @@
         }
         function get_references(){
         return $this->references;
-        }
-        function set_profile($profile){
-        $this->profile = $profile;
-        }
-        function get_profile(){
-        return $this->profile;
         }
         function set_contace($contace){
             $this->contace = $contace;
