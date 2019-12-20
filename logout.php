@@ -1,8 +1,8 @@
 <?php
     session_start();
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['id'])) {
         unset($_SESSION['id']);
-        header("location:from.php");
+        header("location:login.php");
     }
 ?>
 

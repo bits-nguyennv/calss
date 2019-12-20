@@ -6,17 +6,17 @@ class dbconnect {
       public $db;
       public $conn;
 
-    public function __construct(){
+    public function __construct() {
         $this->host = "localhost";
         $this->user = "root";
         $this->db = "bits";
         $this->pass = "";
     }
-    function connect(){
+    function connect() {
         $this->conn = mysqli_connect($this->host,$this->user,$this->pass,$this->db);
-        if (!$this->conn){
+        if (!$this->conn) {
             die("Connection failed: ".$this->conn);
-        }else{
+        }else {
             echo "";   
         } 
     }       
@@ -29,18 +29,18 @@ class dbconnect {
     //         echo " k thành công".$this->conn->error;
     //     }   
     // }
-    function select($table,$where){
+    function select($table,$where) {
         $sql = "SELECT * FROM $table WHERE $where;";
         $select = $this->conn->query($sql);
        $rows =  mysqli_fetch_assoc($select);
-        if ($select == true){
+        if ($select == true) {
                 echo "";
             } else {
                 echo " k thành công".$this->conn->error;
             } 
             return $rows;  
     }
-    function select1($table1,$where1){
+    function select1($table1,$where1) {
         $sql = "SELECT * FROM $table1 WHERE $where1;";
         $result = mysqli_query($this->conn, $sql);
         return $result;  
