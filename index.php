@@ -9,7 +9,7 @@
   $db2 = new dbconnect();
   $db2->connect();
   $table1 = 'experience';
-  $where1 = "user_id = ". $_SESSION['id'];
+  $where1 = "user_id = " . $_SESSION['id'];
   $experience = $db2->select1($table1,$where1);
   $nguyen->set_experience($experience);
   
@@ -32,7 +32,7 @@
   $references = $db2->select1($table1,$where1);
   $nguyen->set_references($references);
   $table1 = 'user';
-  $where1 ="id = ".$_SESSION['id'];
+  $where1 ="id = " .$_SESSION['id'];
   $name = $db2->select1($table1,$where1);
   $name =  mysqli_fetch_assoc($name);
   $nguyen->set_name($name);
@@ -61,6 +61,9 @@
 					</div>
 				</div>
 				<div class="framer-2">
+					<form action="logout.php" method="POST">
+					    <input type="submit" value ="logout">
+					</from>
 					<?php while($value = mysqli_fetch_assoc($contace)){
 					?>
 					<p><div class="icon-bar"><i class="fas fa-phone"></i></div>
@@ -234,8 +237,8 @@
 					</div>
 			    </div>
 		</div>
-		<form action="logout.php" method="POST">
+		<!-- <form action="logout.php" method="POST">
 			<input type="submit" value ="logout">
-		</from>
+		</from> -->
     </body>
 </html>

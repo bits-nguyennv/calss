@@ -23,10 +23,10 @@
         function set_education($education) {
             $this->education = $education;
         }  
-        function get_education()    {
+        function get_education() {
             return $this->education;
         }  
-        function set_skill($skill)  {
+        function set_skill($skill) {
             $this->skill = $skill;
         }
         function get_skill() {

@@ -3,9 +3,8 @@
     include "dbconn.php";
     $username = $_POST['name'];
     $pass = $_POST['password'];
-
     if($username == "" || $pass == "") { 
-        echo "hjdgjkgd";
+        echo "không thành công";
     }else {
         $db1 = new dbconnect();
         $db1->connect();
@@ -15,11 +14,11 @@
         echo "<pre>";
     }
     if(empty($rows)) {
-        header("location:from.php");
+        header("location:login.php");
     }else {
         $_SESSION['id'] = $rows['id'];
         header("location:index.php");
-    }
-    
+    } 
 ?>
+
 

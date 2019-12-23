@@ -13,22 +13,13 @@ class dbconnect {
         $this->pass = "";
     }
     function connect() {
-        $this->conn = mysqli_connect($this->host,$this->user,$this->pass,$this->db);
+        $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
         if (!$this->conn) {
-            die("Connection failed: ".$this->conn);
+            die("Connection failed: ". $this->conn);
         }else {
             echo "";   
         } 
     }       
-    // function insert($table,$colum,$values){
-    //     $sql = "INSERT INTO $table ($colum) VALUES ($values);";
-    //     $insert = $this->conn->query($sql);
-    //     if ($insert == true){
-    //         echo " thành công";
-    //     } else {
-    //         echo " k thành công".$this->conn->error;
-    //     }   
-    // }
     function select($table,$where) {
         $sql = "SELECT * FROM $table WHERE $where;";
         $select = $this->conn->query($sql);
@@ -36,7 +27,7 @@ class dbconnect {
         if ($select == true) {
                 echo "";
             } else {
-                echo " k thành công".$this->conn->error;
+                echo " k thành công". $this->conn->error;
             } 
             return $rows;  
     }
@@ -44,46 +35,7 @@ class dbconnect {
         $sql = "SELECT * FROM $table1 WHERE $where1;";
         $result = mysqli_query($this->conn, $sql);
         return $result;  
-    }
-    // function insert1($table1,$colum1,$values1){
-    //     $sql = "INSERT INTO $table1 ($colum1) VALUES ($values1);";
-    //     $insert1 = $this->conn->query($sql);
-    //     if ($insert1 == true){
-    //         echo " thành công";
-    //     } else {
-    //         echo " k thành công".$this->conn->error;
-    //     }   
-    // }
-    // function select1($table1){
-    //     $sql = "SELECT * FROM $table1";
-    //     $select1 = $this->conn->query($sql);
-    //    $rows =  mysqli_fetch_all($select1);
-    //     if ($select1 == true){
-    //             echo " thành công";
-    //         } else {
-    //             echo " k thành công".$this->conn->error;
-    //         } 
-    //         return $rows;  
-    // }
-    
-    // function update($table,$colum1,$values1){
-    //     $sql = "UPDATE $table SET $colum1 = $values1;";
-    //     $update = $this->conn->query($sql);
-    //     if ($update === TRUE){
-    //     echo " thành công";
-    //     } else {
-    //     echo " k thành công". $this->conn->error;
-    //     }   
-    // }
-    // function delete($table,$where){
-    // $sql = "DELETE FROM $table WHERE $where";
-    // $delete = $this->conn->query($sql);
-    //     if ($delete === TRUE){
-    //     echo " thành công";
-    //     } else {
-    //     echo " k thành công". $this->conn->error;
-    //     }   
-    // }
+    }  
 }      
     // $db = new dbconnect();
     // $db->connect();
