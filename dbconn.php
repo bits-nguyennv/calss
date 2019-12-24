@@ -23,7 +23,7 @@ class dbconnect {
     function select($table,$where) {
         $sql = "SELECT * FROM $table WHERE $where;";
         $select = $this->conn->query($sql);
-       $rows =  mysqli_fetch_assoc($select);
+        $rows =  mysqli_fetch_assoc($select);
         if ($select == true) {
                 echo "";
             } else {
@@ -36,6 +36,37 @@ class dbconnect {
         $result = mysqli_query($this->conn, $sql);
         return $result;  
     }  
+    function insert($table,$colum,$values) {
+        $sql = "INSERT INTO $table ($colum) VALUES ($values);";
+        $insert = $this->conn->query($sql);
+        if ($insert == true){
+            echo " thành công";
+        } else {
+            echo " k thành công".$this->conn->error;
+        }   
+    }
+    function update($table,$colum1,$values,$where) {
+        $sql = "UPDATE $table SET $colum1 = $values WHERE $where;";
+        $update = $this->conn->query($sql);
+        if ($update === TRUE){
+        echo " thành công";
+        } else {
+        echo " k thành công". $this->conn->error;
+        }   
+    }
+    function select2($table2,$where2) {
+            $sql = "SELECT * FROM $table2 WHERE $where2";
+            $select2 = $this->conn->query($sql);
+           $rows =  mysqli_fetch_all($select2);
+            if ($select2  == true){
+                    echo " thành công";
+                } else {
+                    echo " k thành công".$this->conn->error;
+                } 
+                return $rows;  
+    }
+   
+
 }      
     // $db = new dbconnect();
     // $db->connect();
