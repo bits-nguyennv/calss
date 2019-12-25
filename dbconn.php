@@ -20,12 +20,12 @@ class dbconnect {
             echo "";   
         } 
     }       
-    function select($table,$where) {
-        $sql = "SELECT * FROM $table WHERE $where;";
+    function select($table) {
+        $sql = "SELECT * FROM $table ;";
         $select = $this->conn->query($sql);
         $rows =  mysqli_fetch_assoc($select);
         if ($select == true) {
-                echo "";
+            echo "thành công";
             } else {
                 echo " k thành công". $this->conn->error;
             } 
@@ -45,8 +45,10 @@ class dbconnect {
             echo " k thành công".$this->conn->error;
         }   
     }
-    function update($table,$colum1,$values,$where) {
-        $sql = "UPDATE $table SET $colum1 = $values WHERE $where;";
+    function update($table,$colum,$values,$where) {
+        $sql = "UPDATE $table SET $colum = '$values' WHERE $where;";
+        // var_dump($sql);
+        // die;
         $update = $this->conn->query($sql);
         if ($update === TRUE){
         echo " thành công";
@@ -54,19 +56,15 @@ class dbconnect {
         echo " k thành công". $this->conn->error;
         }   
     }
-    function select2($table2,$where2) {
-            $sql = "SELECT * FROM $table2 WHERE $where2";
-            $select2 = $this->conn->query($sql);
-           $rows =  mysqli_fetch_all($select2);
-            if ($select2  == true){
-                    echo " thành công";
-                } else {
-                    echo " k thành công".$this->conn->error;
-                } 
-                return $rows;  
+    function delete($table,$where){
+        $sql = "DELETE FROM $table WHERE $where";
+        $delete = $this->conn->query($sql);
+            if ($delete === TRUE){
+            echo " thành công";
+            } else {
+            echo " k thành công". $this->conn->error;
+            }   
     }
-   
-
 }      
     // $db = new dbconnect();
     // $db->connect();
