@@ -20,6 +20,3 @@
         header("location:index.php");      
     } 
 ?>
-
-
-

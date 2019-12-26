@@ -5,5 +5,3 @@
         header("location:login.php");
     }
 ?>
-
-
