@@ -11,16 +11,15 @@
         $table = 'user';
         $where = "name ='$username' && password ='$pass'";
         $rows = $db1->select($table,$where);
-        echo "<pre>";
-        
+        echo "<pre>";       
     }
     if(empty($rows)) {
         header("location:login.php");
     }else {
         $_SESSION['id'] = $rows['id'];
-        header("location:index.php");
-       
+        header("location:index.php");      
     } 
 ?>
+
 
 
