@@ -17,6 +17,7 @@
         header("location:login.php");
     }else {
         $_SESSION['id'] = $rows['id'];
+        var_dump($_SESSION);
         header("location:index.php");      
     } 
 ?>

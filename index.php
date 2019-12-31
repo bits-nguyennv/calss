@@ -31,6 +31,7 @@
   $table1 = 'referen';
   $references = $db2->select1($table1,$where1);
   $nguyen->set_references($references);
+  
   $table1 = 'user';
   $where1 ="id = " .$_SESSION['id'];
   $name = $db2->select1($table1,$where1);
@@ -40,15 +41,32 @@
 <html>
     <head>
 		<title>CV công việc</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	</head>
     <body>
 	    <div class="q-100">
 			<div class="header">
+			<div class="d-flex flex-row-reverse ">
+				<div class="p-2 ">
+					<form action="logout.php" method="POST">
+						<input type="submit" value ="logout">
+					</form>
+				</div>
+				<div class="p-2 ">
+					<form action="delete.php" method="POST">
+						<input type="submit" value ="delete">
+					</form>
+				</div>
+				<div class="p-2 ">
+					<form action="from_update.php" method="POST">
+						<input type="submit" value ="update">
+					</form>
+				</div>
+			</div>
 				<div class="framer-1">
-					<img src=<?php echo "".$nguyen->get_name()['img'] ?> class="rounded-circle float-left border-img " alt="Cinque Terre" width="200" height="180" >
+					<img src=<?php echo "".$nguyen->get_name()['img'] ?> class="rounded-circle float-left border-img " alt="Cinque Terre" width="200" height="200" >
 					<div class="word">
 						<h2>
 							<?php
@@ -60,10 +78,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="framer-2">
-					<form action="logout.php" method="POST">
-					    <input type="submit" value ="logout">
-					</from>
+				<div class="framer-2">				    
 					<?php while($value = mysqli_fetch_assoc($contace)){
 					?>
 					<p><div class="icon-bar"><i class="fas fa-phone"></i></div>
@@ -237,8 +252,5 @@
 					</div>
 			    </div>
 		</div>
-		<!-- <form action="logout.php" method="POST">
-			<input type="submit" value ="logout">
-		</from> -->
     </body>
 </html>

@@ -18,11 +18,6 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Sign In</h3>
-                        <div class="d-flex justify-content-end social_icon">
-                            <span><i class="fab fa-facebook-square"></i></span>
-                            <span><i class="fab fa-google-plus-square"></i></span>
-                            <span><i class="fab fa-twitter-square"></i></span>
-                        </div>
                     </div>
                     <div class="card-body">
                         <form action="content.php" method = "POST">
@@ -39,27 +34,22 @@
                                 </div>
                                 <input type="password" class="form-control" placeholder=" password" name="password">
                             </div>
-                            <div class="row align-items-center remember">
-                                <input type="checkbox">Remember Me
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-right login_btn">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer">
-                        <div class="d-flex justify-content-center links">
-                            Don't have an account?<a href="#">Sign Up</a>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="#">Forgot your password?</a>
-                        </div>
+                            <div class="d-flex mb-3 bg-secondary">
+                                <div class="p-2 mr-auto">
+                                    <form action="content.php" method = "POST"> 
+                                        <input type="submit" value="Login" class="btn float-right login_btn">
+                                    </form>
+                                </div>                                                             
+                                <div class="p-2">
+                                    <form action="from.php" method="POST">
+                                        <input type="submit" value ="register" class= "btn float-right login_btn">
+                                    </from>                           
+                                </div>
+                            </div>     
+                        </form>          
                     </div>
                 </div>
             </div>
         </div>
     </body>
 </html>
-
-
-

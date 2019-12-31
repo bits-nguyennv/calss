@@ -5,10 +5,16 @@
     $pass = $_POST['password'];
     $addess = $_POST['addess'];
     $profile = $_POST['profile'];
+    $img = $_POST['img'];
     $db3 = new dbconnect();
     $db3->connect();
     $table = 'user';
-    $colum = 'name,name1,password,addess,profile';
-    $values =  "('$name'),('$name1'),('$pass'),('$addess'),('$profile')";
-    $db3->insert($table,$colum,$values);
+    $colum = 'name,name1,password,addess,profile,img';
+    $values =  "('$name'),('$name1'),('$pass'),('$addess'),('$profile'),('$img')";
+    $insert= $db3->insert($table,$colum,$values);
+    if(empty($insert)) {
+        header("location:insert.php");
+    }else {
+        header("location:login.php");
+    }
 ?>

@@ -10,6 +10,8 @@
         <input type="text" placeholder="addess" name="addess"><br>
         profile:<br>
         <input type="text" placeholder="profile" name="profile"><br>
+        img:<br>
+        <input type="text" placeholder="img" name="img"><br>
         <input type="submit" value="Submit">
     </form> 
 </html>
