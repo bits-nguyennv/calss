@@ -34,8 +34,6 @@ class dbconnect {
     function select1($table1,$where1) {
         $sql = "SELECT * FROM $table1 WHERE $where1;";
         $result = mysqli_query($this->conn, $sql);
-        // var_dump($result);
-        // die;
         return $result;  
     }  
     function insert($table,$colum,$values) {
@@ -50,7 +48,7 @@ class dbconnect {
     }
     function update($table,$array,$where) {
         $tex = "";
-        foreach($array as $key =>$values){
+        foreach($array as $key => $values){
             $tex .="$key = '$values',";
         }
         $array1 = substr($tex,0,-1);      

@@ -42,7 +42,7 @@
                                 </div>                                                             
                                 <div class="p-2">
                                     <form action="from.php" method="POST">
-                                        <input type="submit" value ="register" class= "btn float-right login_btn">
+                                        <input type="submit" value ="Sign Up" class= "btn float-right login_btn">
                                     </from>                           
                                 </div>
                             </div>     

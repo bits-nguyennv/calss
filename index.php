@@ -79,11 +79,12 @@
 					</div>
 				</div>
 				<div class="framer-2">				    
-					<?php while($value = mysqli_fetch_assoc($contace)){
-					?>
+					
 					<p><div class="icon-bar"><i class="fas fa-phone"></i></div>
-						<?php echo $value ['phone'];?></p>
-						<?php echo $value ['phone1'];?>
+						<?php echo ''. $nguyen->get_name()['phone'];?></p>
+						<!-- <?php echo $value ['phone1'];?> -->
+						<?php while($value = mysqli_fetch_assoc($contace)){
+					?>	
 					<p><div class="icon-bar"><i class="far fa-envelope" ></i></div>
 						<?php echo $value ['email'];?></p>
 					<p><div class="icon-bar"><i class="fas fa-map-marker-alt"></i></div>

@@ -5,17 +5,17 @@
     $pass = $_POST['password'];
     if($username == "" || $pass == "") { 
         echo "không thành công";
-    }else {
+    } else {
         $db1 = new dbconnect();
         $db1->connect();
         $table = 'user';
-        $where = "name ='$username' && password ='$pass'";
+        $where = "name = '$username' && password = '$pass'";
         $rows = $db1->select($table,$where);
         echo "<pre>";       
     }
     if(empty($rows)) {
         header("location:login.php");
-    }else {
+    } else {
         $_SESSION['id'] = $rows['id'];
         var_dump($_SESSION);
         header("location:index.php");      
