@@ -2,15 +2,15 @@ body {
     background: white;
     font-family: Varta;
     font-style: normal;
+    
 }
 .q-100 {
     width: 100%;
 }
 .header {   
     width: 100%;
-    height: 200px;
-    float: left;
-   
+    height: 300px;
+    float: left;  
 }
 .content {   
     width: 100%;
@@ -152,7 +152,7 @@ body {
 }
 .footer {   
     width: 100%;
-    height: 300px;
+    height: 100px;
     float: left;
    padding: 10px;
 }
@@ -161,7 +161,7 @@ body {
     height: 300px;
     float: left;
 }
-.footer-11{   
+.footer-11 {   
     width: 100%;
     height:50px;
     float: left;
@@ -214,7 +214,6 @@ body {
     height: 200px;
     width: 60%;
     float: left;
-  
 }
 .framer-2 {  
     height: 200px;
@@ -267,5 +266,3 @@ body {
 .container {
     margin: 2px;
 }
-
-
